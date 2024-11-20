@@ -1,0 +1,20 @@
+
+#include<pic18f4585.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+#pragma romdata source = 0x200
+#pragma romdata dest = 0x210
+
+near rom const char source[]="HELLO";
+
+void main(void)
+{
+    int i;
+    TRISB = 0;
+
+    for(i=0;i<5;i++)  //counter 0 to 4
+    {
+        PORTB=source[i];   //source to destination
+    }
+}
